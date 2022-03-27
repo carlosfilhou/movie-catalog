@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
             'Hello World!',
             style: TextStyle(
               fontSize: 30,
-              color: Colors.green,
+              color: Colors.white,
             ),
           ),
         ),
