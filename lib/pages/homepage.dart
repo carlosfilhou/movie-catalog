@@ -16,14 +16,27 @@ class HomePage extends StatelessWidget {
     return Container(
       color: Color.fromARGB(255, 68, 68, 68),
       child: Center(
-        child: _img(),
+        child: _button(),
       ),
     );
   }
 
-  _img() {
-    return Image.asset('assets/images/infiltrado.jpg');
+  _img() => Image.asset('assets/images/infiltrado.jpg');
+
+  _button() {
+    return RaisedButton(
+      color: Colors.green,
+      child: Text(
+        'OK!',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      onPressed: () => _onClickOk(),
+    );
   }
+
+  void _onClickOk() => print('Clicou no botão de OK');
 
   _text() {
     return Text(
