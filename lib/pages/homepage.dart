@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      onPressed: () => _onClickOk(),
+      onPressed: _onClickOk,
     );
   }
 
