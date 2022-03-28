@@ -5,7 +5,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Meu Aplicativo'),
+        backgroundColor: Colors.green,
+        title: Text('Filmes (teste)'),
       ),
       body: _body(),
     );
@@ -15,14 +16,18 @@ class HomePage extends StatelessWidget {
     return Container(
       color: Color.fromARGB(255, 68, 68, 68),
       child: Center(
-        child: _text(),
+        child: _img(),
       ),
     );
   }
 
+  _img() {
+    return Image.asset('assets/images/infiltrado.jpg');
+  }
+
   _text() {
     return Text(
-      'Hello World!',
+      'RECEEEEBAAA!',
       style: TextStyle(
         fontSize: 35,
         color: Colors.white,
