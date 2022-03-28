@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text('Filmes (teste)'),
+        title: Text('FILMES (teste)'),
       ),
       body: _body(),
     );
