@@ -5,11 +5,21 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[850],
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text('FILMES'),
-      ),
+      appBar: _appBar(),
       body: _body(),
+    );
+  }
+
+  _appBar() {
+    return AppBar(
+      backgroundColor: Colors.green,
+      title: Text(
+        'FILMES',
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     );
   }
 
@@ -19,7 +29,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _text(),
+          _title(),
           _pageView(),
           _buttons(),
         ],
@@ -87,14 +97,18 @@ class HomePage extends StatelessWidget {
 
   void _onClickOk() => print('Clicou no botão de OK');
 
-  _text() {
-    return Text(
-      'Destaques',
-      style: TextStyle(
-        fontSize: 35,
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic,
+  _title() {
+    return Container(
+      padding: const EdgeInsets.all(7),
+      color: Colors.green,
+      child: Text(
+        'Destaques',
+        style: TextStyle(
+          fontSize: 21,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.italic,
+        ),
       ),
     );
   }
