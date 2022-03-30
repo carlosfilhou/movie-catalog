@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget {
 
   _pageView() {
     return Container(
+      margin: EdgeInsets.only(top: 15, bottom: 15),
       height: 400,
       child: PageView(
         children: [
@@ -65,7 +66,6 @@ class HomePage extends StatelessWidget {
 
   _img(String img) {
     return Container(
-      margin: EdgeInsets.all(10),
       child: Image.asset(
         img,
       ),
