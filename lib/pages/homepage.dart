@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
 
   _text() {
     return Text(
-      'Destaque',
+      'Destaques',
       style: TextStyle(
         fontSize: 35,
         color: Colors.white,
