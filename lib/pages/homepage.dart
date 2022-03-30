@@ -4,29 +4,57 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 114, 113, 113),
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text('FILMES (teste)'),
+        title: Text('FILMES'),
       ),
       body: _body(),
     );
   }
 
   _body() {
-    return Container(
-        color: Color.fromARGB(255, 68, 68, 68),
-        child: Center(
-          child: _button(),
-        ));
+    return Center(
+      child: Container(
+        color: Color.fromARGB(255, 114, 113, 113),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [_text(), _img(), _buttons()],
+        ),
+      ),
+    );
+  }
+
+  _buttons() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _button('List View'),
+            _button('Page 2'),
+            _button('Page 3'),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _button('Snack'),
+            _button('Dialog'),
+            _button('Toast'),
+          ],
+        ),
+      ],
+    );
   }
 
   _img() => Image.asset('assets/images/infiltrado.jpg');
 
-  _button() {
+  _button(String text) {
     return RaisedButton(
       color: Colors.green,
       child: Text(
-        'OK',
+        text,
         style: TextStyle(
           color: Colors.white,
         ),
@@ -39,7 +67,7 @@ class HomePage extends StatelessWidget {
 
   _text() {
     return Text(
-      'RECEEEEBAAA!',
+      'Destaque',
       style: TextStyle(
         fontSize: 35,
         color: Colors.white,
