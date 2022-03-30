@@ -4,7 +4,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 114, 113, 113),
+      backgroundColor: Colors.grey[850],
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: Text('FILMES'),
@@ -14,13 +14,28 @@ class HomePage extends StatelessWidget {
   }
 
   _body() {
-    return Center(
-      child: Container(
-        color: Color.fromARGB(255, 114, 113, 113),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [_text(), _img(), _buttons()],
-        ),
+    return Container(
+      color: Colors.grey[850],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _text(),
+          _pageView(),
+          _buttons(),
+        ],
+      ),
+    );
+  }
+
+  _pageView() {
+    return Container(
+      height: 400,
+      child: PageView(
+        children: [
+          _img('assets/images/avengers.jpg'),
+          _img('assets/images/1917.jpeg'),
+          _img('assets/images/meninaroubava.jpg'),
+        ],
       ),
     );
   }
@@ -48,7 +63,14 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _img() => Image.asset('assets/images/infiltrado.jpg');
+  _img(String img) {
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: Image.asset(
+        img,
+      ),
+    );
+  }
 
   _button(String text) {
     return RaisedButton(
