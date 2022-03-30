@@ -14,11 +14,10 @@ class HomePage extends StatelessWidget {
 
   _body() {
     return Container(
-      color: Color.fromARGB(255, 68, 68, 68),
-      child: Center(
-        child: _button(),
-      ),
-    );
+        color: Color.fromARGB(255, 68, 68, 68),
+        child: Center(
+          child: _button(),
+        ));
   }
 
   _img() => Image.asset('assets/images/infiltrado.jpg');
