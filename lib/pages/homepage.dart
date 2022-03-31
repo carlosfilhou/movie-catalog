@@ -24,22 +24,27 @@ class HomePage extends StatelessWidget {
   }
 
   _body() {
-    return Container(
-      color: Colors.grey[850],
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _title(),
-          _pageView(),
-          _buttons(),
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _title('Destaques'),
+            _pageView(),
+            _buttons(),
+            _title('Destaques 2'),
+            _pageView(),
+            _buttons(),
+          ],
+        ),
       ),
     );
   }
 
   _pageView() {
     return Container(
-      margin: EdgeInsets.only(top: 15, bottom: 15),
+      margin: EdgeInsets.only(top: 10, bottom: 10),
       height: 400,
       child: PageView(
         children: [
@@ -52,25 +57,28 @@ class HomePage extends StatelessWidget {
   }
 
   _buttons() {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _button('List View'),
-            _button('Page 2'),
-            _button('Page 3'),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _button('Snack'),
-            _button('Dialog'),
-            _button('Toast'),
-          ],
-        ),
-      ],
+    return Container(
+      margin: EdgeInsets.only(bottom: 16),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _button('List View'),
+              _button('Page 2'),
+              _button('Page 3'),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _button('Snack'),
+              _button('Dialog'),
+              _button('Toast'),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -97,12 +105,12 @@ class HomePage extends StatelessWidget {
 
   void _onClickOk() => print('Clicou no botão de OK');
 
-  _title() {
+  _title(String title) {
     return Container(
       padding: const EdgeInsets.all(7),
       color: Colors.green,
       child: Text(
-        'Destaques',
+        title,
         style: TextStyle(
           fontSize: 21,
           color: Colors.white,
