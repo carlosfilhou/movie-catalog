@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[850],
       appBar: _appBar(),
-      body: _body(),
+      body: _body(context),
     );
   }
 
@@ -23,21 +23,16 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _body() {
-    return SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _title('Destaques'),
-            _pageView(),
-            _buttons(),
-            _title('Destaques 2'),
-            _pageView(),
-            _buttons(),
-          ],
-        ),
+  _body(context) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _title('Destaques'),
+          _pageView(),
+          _buttons(context),
+        ],
       ),
     );
   }
@@ -56,25 +51,24 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buttons() {
+  _buttons(context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _button('List View'),
-              _button('Page 2'),
-              _button('Page 3'),
+              _button(context, 'List View'),
+              _button(context, 'Page 2'),
+              _button(context, 'Page 3'),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _button('Snack'),
-              _button('Dialog'),
-              _button('Toast'),
+              _button(context, 'Snack'),
+              _button(context, 'Dialog'),
+              _button(context, 'Toast'),
             ],
           ),
         ],
@@ -90,20 +84,20 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _button(String text) {
+  _button(context, String text) {
     return RaisedButton(
-      color: Colors.green,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.white,
+        color: Colors.green,
+        child: Text(
+          text,
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
-      ),
-      onPressed: _onClickOk,
+        onPressed: () => _onClickOk(context)
     );
   }
 
-  void _onClickOk() => print('Clicou no botão de OK');
+  void _onClickOk(context) => Navigator.push(context, route);
 
   _title(String title) {
     return Container(
