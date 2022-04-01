@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practicing/pages/hello_page1.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -93,11 +94,15 @@ class HomePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        onPressed: () => _onClickOk(context)
-    );
+        onPressed: () => _onClickOk(context));
   }
 
-  void _onClickOk(context) => Navigator.push(context, route);
+  void _onClickOk(context) => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (BuildContext context) {
+          return HelloPage1();
+        }),
+      );
 
   _title(String title) {
     return Container(
