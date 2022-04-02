@@ -87,14 +87,15 @@ class HomePage extends StatelessWidget {
 
   _button(context, String text) {
     return RaisedButton(
-        color: Colors.green,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-          ),
+      color: Colors.green,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.white,
         ),
-        onPressed: () => _onClickOk(context));
+      ),
+      onPressed: () => _onClickOk(context),
+    );
   }
 
   void _onClickOk(context) => Navigator.push(
