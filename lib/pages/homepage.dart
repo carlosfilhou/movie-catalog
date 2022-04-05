@@ -1,5 +1,9 @@
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_practicing/pages/hello_page1.dart';
+import 'package:flutter_practicing/pages/hello_page2.dart';
+import 'package:flutter_practicing/pages/hello_page3.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -59,23 +63,41 @@ class HomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _button(context, 'List View'),
-              _button(context, 'Page 2'),
-              _button(context, 'Page 3'),
+              _button(context, 'List View',
+                  () => _onClickNavigator(context, HelloPage1())),
+              _button(context, 'Page 2',
+                  () => _onClickNavigator(context, HelloPage2())),
+              _button(context, 'Page 3',
+                  () => _onClickNavigator(context, HelloPage3())),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _button(context, 'Snack'),
-              _button(context, 'Dialog'),
-              _button(context, 'Toast'),
+            children: <Widget>[
+              _button(context, 'Snack', _onClickSnack),
+              _button(context, 'Dialog', _onClickDialog),
+              _button(context, 'Toast', _onClickToast),
             ],
           ),
         ],
       ),
     );
   }
+
+  void _onClickNavigator(BuildContext context, Widget page) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) {
+        return page;
+      }),
+    );
+  }
+
+  _onClickSnack() {}
+
+  _onClickDialog() {}
+
+  _onClickToast() {}
 
   _img(String img) {
     return Container(
@@ -85,7 +107,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _button(context, String text) {
+  _button(BuildContext context, String text, onPressed) {
     return RaisedButton(
       color: Colors.green,
       child: Text(
@@ -94,16 +116,9 @@ class HomePage extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      onPressed: () => _onClickOk(context),
+      onPressed: onPressed,
     );
   }
-
-  void _onClickOk(context) => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (BuildContext context) {
-          return HelloPage1();
-        }),
-      );
 
   _title(String title) {
     return Container(
