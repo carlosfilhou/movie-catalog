@@ -8,8 +8,25 @@ class HelloPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Page 3'),
+      backgroundColor: Colors.grey[850],
+      appBar: _appBar(),
+      body: _body(context),
+    );
+  }
+
+  _body(context) {
+    return Center();
+  }
+
+  _appBar() {
+    return AppBar(
+      backgroundColor: Colors.green,
+      title: Text(
+        'PAGE 3',
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
