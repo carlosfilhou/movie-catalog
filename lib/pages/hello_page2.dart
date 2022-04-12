@@ -22,9 +22,13 @@ class HelloPage2 extends StatelessWidget {
           'Voltar',
           style: TextStyle(color: Colors.white),
         ),
-        onPressed: () => Navigator.pop(context),
+        onPressed: () => _onClickVoltar(context),
       ),
     );
+  }
+
+  _onClickVoltar(context) {
+    Navigator.pop(context, "tela 2");
   }
 
   _appBar() {

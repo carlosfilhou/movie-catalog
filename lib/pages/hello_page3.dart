@@ -15,7 +15,20 @@ class HelloPage3 extends StatelessWidget {
   }
 
   _body(context) {
-    return Center();
+    return Center(
+      child: RaisedButton(
+        color: Colors.green,
+        child: Text(
+          'Voltar',
+          style: TextStyle(color: Colors.white),
+        ),
+        onPressed: () => _onClickVoltar(context),
+      ),
+    );
+  }
+
+  _onClickVoltar(context) {
+    Navigator.pop(context, "tela 3");
   }
 
   _appBar() {
