@@ -18,11 +18,10 @@ class HomePage extends StatelessWidget {
 
   _appBar() {
     return AppBar(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.blueGrey,
       title: Text(
         'FILMES',
         style: TextStyle(
-          fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -117,7 +116,7 @@ class HomePage extends StatelessWidget {
   _title(String title) {
     return Container(
       padding: const EdgeInsets.all(7),
-      color: Colors.green,
+      color: Colors.blueGrey,
       child: Text(
         title,
         style: TextStyle(

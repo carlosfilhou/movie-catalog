@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_practicing/widgets/style_button.dart';
 
 class HelloPage2 extends StatelessWidget {
   const HelloPage2({Key? key}) : super(key: key);
@@ -16,13 +17,9 @@ class HelloPage2 extends StatelessWidget {
 
   _body(context) {
     return Center(
-      child: RaisedButton(
-        color: Colors.green,
-        child: Text(
-          'Voltar',
-          style: TextStyle(color: Colors.white),
-        ),
-        onPressed: () => _onClickVoltar(context),
+      child: StyleGreyButton(
+        'Voltar',
+        () => _onClickVoltar(context),
       ),
     );
   }
@@ -33,11 +30,10 @@ class HelloPage2 extends StatelessWidget {
 
   _appBar() {
     return AppBar(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.blueGrey,
       title: Text(
         'PAGE 2',
         style: TextStyle(
-          fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
       ),
