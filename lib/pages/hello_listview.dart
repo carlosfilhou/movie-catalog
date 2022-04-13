@@ -24,7 +24,7 @@ class HelloListView extends StatelessWidget {
       ),
     );
   }
-  
+
   _body() {
     return ListView(
       children: [

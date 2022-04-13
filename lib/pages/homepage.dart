@@ -30,7 +30,6 @@ class HomePage extends StatelessWidget {
 
   _body(context) {
     return Container(
-      padding: EdgeInsets.all(16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
