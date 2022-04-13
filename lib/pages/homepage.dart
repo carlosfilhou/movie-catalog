@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_practicing/pages/hello_page1.dart';
+import 'package:flutter_practicing/pages/hello_listview.dart';
 import 'package:flutter_practicing/pages/hello_page2.dart';
 import 'package:flutter_practicing/pages/hello_page3.dart';
 import 'package:flutter_practicing/widgets/style_button.dart';
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.blueGrey,
       title: Text(
-        'FILMES',
+        'Filmes',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
@@ -48,8 +48,11 @@ class HomePage extends StatelessWidget {
       height: 400,
       child: PageView(
         children: [
-          _img('assets/images/avengers.jpg'),
+          _img('assets/images/acabana.jpg'),
           _img('assets/images/1917.jpeg'),
+          _img('assets/images/johnwick.jpg'),
+          _img('assets/images/infiltrado.jpg'),
+          _img('assets/images/avengers.jpg'),
           _img('assets/images/meninaroubava.jpg'),
         ],
       ),
@@ -64,8 +67,8 @@ class HomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              StyleGreyButton(
-                  'List View', () => _onClickNavigator(context, HelloPage1())),
+              StyleGreyButton('List View',
+                  () => _onClickNavigator(context, HelloListView())),
               StyleGreyButton(
                   'Page 2', () => _onClickNavigator(context, HelloPage2())),
               StyleGreyButton(
