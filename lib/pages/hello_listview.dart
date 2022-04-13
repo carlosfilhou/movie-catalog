@@ -24,19 +24,17 @@ class HelloListView extends StatelessWidget {
       ),
     );
   }
-
+  
   _body() {
-    return Container(
-      child: ListView(
-        children: [
-          _img('assets/images/avengers.jpg'),
-          _img('assets/images/1917.jpeg'),
-          _img('assets/images/johnwick.jpg'),
-          _img('assets/images/infiltrado.jpg'),
-          _img('assets/images/acabana.jpg'),
-          _img('assets/images/meninaroubava.jpg'),
-        ],
-      ),
+    return ListView(
+      children: [
+        _img('assets/images/avengers.jpg'),
+        _img('assets/images/1917.jpeg'),
+        _img('assets/images/johnwick.jpg'),
+        _img('assets/images/infiltrado.jpg'),
+        _img('assets/images/acabana.jpg'),
+        _img('assets/images/meninaroubava.jpg'),
+      ],
     );
   }
 
