@@ -26,24 +26,27 @@ class HelloListView extends StatelessWidget {
   }
 
   _body() {
-    return ListView(
-      children: [
-        _img('assets/images/avengers.jpg'),
-        _img('assets/images/1917.jpeg'),
-        _img('assets/images/johnwick.jpg'),
-        _img('assets/images/infiltrado.jpg'),
-        _img('assets/images/acabana.jpg'),
-        _img('assets/images/meninaroubava.jpg'),
-      ],
-    );
+    List<Image> imgs = [
+      _img('assets/images/avengers.jpg'),
+      _img('assets/images/1917.jpeg'),
+      _img('assets/images/johnwick.jpg'),
+      _img('assets/images/infiltrado.jpg'),
+      _img('assets/images/acabana.jpg'),
+      _img('assets/images/meninaroubava.jpg'),
+    ];
+
+    return ListView.builder(
+        itemCount: imgs.length,
+        itemBuilder: (BuildContext context, int index) {
+          Image img = imgs[index];
+          return img;
+        });
   }
 
   _img(String img) {
-    return Container(
-      child: Image.asset(
-        img,
-        fit: BoxFit.cover,
-      ),
+    return Image.asset(
+      img,
+      fit: BoxFit.cover,
     );
   }
 }
