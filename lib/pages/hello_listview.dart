@@ -23,6 +23,20 @@ class HelloListView extends StatelessWidget {
   _appBar() {
     return AppBar(
       backgroundColor: Colors.blueGrey,
+      actions: [
+        IconButton(
+          icon: Icon(Icons.list),
+          onPressed: () {
+            print('Lista');
+          },
+        ),
+        IconButton(
+          icon: Icon(Icons.grid_on),
+          onPressed: () {
+            print('Grade');
+          },
+        )
+      ],
       title: Text(
         'List View',
         style: TextStyle(
