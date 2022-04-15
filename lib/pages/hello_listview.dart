@@ -1,6 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
+class Film {
+  String nome;
+  String foto;
+
+  Film(this.nome, this.foto);
+}
+
 class HelloListView extends StatelessWidget {
   const HelloListView({Key? key}) : super(key: key);
 
@@ -26,20 +33,30 @@ class HelloListView extends StatelessWidget {
   }
 
   _body() {
-    List<Image> imgs = [
-      _img('assets/images/avengers.jpg'),
-      _img('assets/images/1917.jpeg'),
-      _img('assets/images/johnwick.jpg'),
-      _img('assets/images/infiltrado.jpg'),
-      _img('assets/images/acabana.jpg'),
-      _img('assets/images/meninaroubava.jpg'),
+    List<Film> films = [
+      Film('Avengers', 'assets/images/avengers.jpg'),
+      Film('A Cabana', 'assets/images/acabana.jpg'),
+      Film('O Infiltrado', 'assets/images/infiltrado.jpg'),
+      Film('John Wick', 'assets/images/johnwick.jpg'),
+      Film('A Menina que Roubava Livros', 'assets/images/meninaroubava.jpg')
     ];
 
     return ListView.builder(
-      itemCount: imgs.length,
+      itemCount: films.length,
+      itemExtent: 500,
       itemBuilder: (BuildContext context, int index) {
-        Image img = imgs[index];
-        return img;
+        Film film = films[index];
+
+        return Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            _img(film.foto),
+            Text(
+              film.nome,
+              style: TextStyle(fontSize: 26, color: Colors.white),
+            )
+          ],
+        );
       },
     );
   }
