@@ -36,11 +36,12 @@ class HelloListView extends StatelessWidget {
     ];
 
     return ListView.builder(
-        itemCount: imgs.length,
-        itemBuilder: (BuildContext context, int index) {
-          Image img = imgs[index];
-          return img;
-        });
+      itemCount: imgs.length,
+      itemBuilder: (BuildContext context, int index) {
+        Image img = imgs[index];
+        return img;
+      },
+    );
   }
 
   _img(String img) {
