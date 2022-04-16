@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.blueGrey,
       title: Text(
-        'Filmes',
+        'Catálogo de Filmes',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
