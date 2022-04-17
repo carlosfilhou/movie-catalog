@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _title('Destaques'),
+          _title('Principais'),
           _pageView(),
           _buttons(context),
         ],
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               StyleGreyButton('List View',
-                  () => _onClickNavigator(context, HelloListView())),
+                  () => _onClickNavigator(context, ListGridView())),
               StyleGreyButton(
                   'Page 2', () => _onClickNavigator(context, HelloPage2())),
               StyleGreyButton(

@@ -8,8 +8,13 @@ class Film {
   Film(this.nome, this.foto);
 }
 
-class HelloListView extends StatelessWidget {
-  const HelloListView({Key? key}) : super(key: key);
+class ListGridView extends StatefulWidget {
+  @override
+  State<ListGridView> createState() => _ListGridViewState();
+}
+
+class _ListGridViewState extends State<ListGridView> {
+  bool _gridView = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +33,18 @@ class HelloListView extends StatelessWidget {
           icon: Icon(Icons.list),
           onPressed: () {
             print('Lista');
+            setState(() {
+              _gridView = false;
+            });
           },
         ),
         IconButton(
           icon: Icon(Icons.grid_on),
           onPressed: () {
             print('Grade');
+            setState(() {
+              _gridView = true;
+            });
           },
         )
       ],
@@ -55,34 +66,49 @@ class HelloListView extends StatelessWidget {
       Film('A Menina que Roubava Livros', 'assets/images/meninaroubava.jpg')
     ];
 
-    return ListView.builder(
-      itemCount: films.length,
-      itemExtent: 500,
-      itemBuilder: (BuildContext context, int index) {
-        Film film = films[index];
+    if (_gridView) {
+      return GridView.builder(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemCount: films.length,
+        itemBuilder: (BuildContext context, int index) {
+          return _card(films, index);
+        },
+      );
+    } else {
+      return ListView.builder(
+        itemExtent: 500,
+        itemCount: films.length,
+        itemBuilder: (BuildContext context, int index) {
+          return _card(films, index);
+        },
+      );
+    }
+  }
 
-        return Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            _img(film.foto),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: EdgeInsets.all(15),
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.black45,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Text(
-                  film.nome,
-                  style: TextStyle(fontSize: 26, color: Colors.white),
-                ),
-              ),
-            )
-          ],
-        );
-      },
+  _card(List<Film> films, int index) {
+    Film film = films[index];
+
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        _img(film.foto),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Container(
+            margin: EdgeInsets.all(15),
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.black45,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Text(
+              film.nome,
+              style: TextStyle(fontSize: 26, color: Colors.white),
+            ),
+          ),
+        )
+      ],
     );
   }
 
