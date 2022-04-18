@@ -6,6 +6,8 @@ import 'package:flutter_practicing/pages/hello_page2.dart';
 import 'package:flutter_practicing/pages/hello_page3.dart';
 import 'package:flutter_practicing/widgets/style_button.dart';
 
+import '../utils/nav.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -87,13 +89,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  
+
   void _onClickNavigator(BuildContext context, Widget page) async {
-    String? s = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (BuildContext context) {
-        return page;
-      }),
-    );
+    String s = await push(context, page);
+
     print('>> $s');
   }
 
