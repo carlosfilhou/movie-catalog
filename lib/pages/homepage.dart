@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
   
 
   void _onClickNavigator(BuildContext context, Widget page) async {
-    String s = await push(context, page);
+    var s = await push(context, page);
 
     print('>> $s');
   }
