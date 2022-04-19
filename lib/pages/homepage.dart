@@ -100,6 +100,7 @@ class HomePage extends StatelessWidget {
   _onClickSnack(context) {
     Scaffold.of(context).showSnackBar(
       SnackBar(
+        backgroundColor: Colors.grey[850],
         content: Text('Olá Flutter'),
         action: SnackBarAction(
           textColor: Colors.white,
