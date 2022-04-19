@@ -12,7 +12,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[850],
       appBar: _appBar(),
       body: _body(context),
     );
@@ -20,7 +19,6 @@ class HomePage extends StatelessWidget {
 
   _appBar() {
     return AppBar(
-      backgroundColor: Colors.blueGrey,
       title: Text(
         'Catálogo de Filmes',
         style: TextStyle(
@@ -49,12 +47,12 @@ class HomePage extends StatelessWidget {
       height: 400,
       child: PageView(
         children: [
-          _img('assets/images/acabana.jpg'),
+          _img('assets/images/django.jpeg'),
           _img('assets/images/1917.jpeg'),
-          _img('assets/images/johnwick.jpg'),
-          _img('assets/images/infiltrado.jpg'),
+          _img('assets/images/thebatman.jpeg'),
+          _img('assets/images/vidasecretawalter.jpeg'),
           _img('assets/images/avengers.jpg'),
-          _img('assets/images/meninaroubava.jpg'),
+          _img('assets/images/gravidade.jpeg'),
         ],
       ),
     );
@@ -65,10 +63,10 @@ class HomePage extends StatelessWidget {
     return Builder(
       builder: (context) {
         return Column(
-          children: <Widget>[
+          children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
+              children: [
                 StyleGreyButton('List View',
                     () => _onClickNavigator(context, ListGridView())),
                 StyleGreyButton(
@@ -81,7 +79,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 StyleGreyButton('Snack', () => _onClickSnack(context)),
-                StyleGreyButton('Dialog', _onClickDialog),
+                StyleGreyButton('Dialog', () => _onClickDialog(context)),
                 StyleGreyButton('Toast', _onClickToast),
               ],
             ),
@@ -100,10 +98,10 @@ class HomePage extends StatelessWidget {
   _onClickSnack(context) {
     Scaffold.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: Colors.grey[850],
-        content: Text('Olá Flutter'),
+        backgroundColor: Colors.white,
+        content: Text('Este é um aleta do tipo Snack'),
         action: SnackBarAction(
-          textColor: Colors.white,
+          textColor: Colors.black,
           label: 'OK',
           onPressed: () {
             print('OK!');
@@ -113,7 +111,35 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _onClickDialog() {}
+  _onClickDialog(BuildContext context) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: AlertDialog(
+            title: Text('Este é um alerta do tipo Dialog'),
+            actions: [
+              FlatButton(
+                child: Text('Cancelar'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              FlatButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.pop(context);
+                  print('OK!!');
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   _onClickToast() {}
 
@@ -132,7 +158,7 @@ class HomePage extends StatelessWidget {
   _title(String title) {
     return Container(
       padding: const EdgeInsets.all(7),
-      color: Colors.blueGrey,
+      color: Colors.grey[700],
       child: Text(
         title,
         style: TextStyle(

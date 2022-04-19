@@ -16,12 +16,11 @@ class ListGridView extends StatefulWidget {
 }
 
 class _ListGridViewState extends State<ListGridView> {
-  bool _gridView = true;
+  bool _gridView = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[850],
       appBar: _appBar(),
       body: _body(),
     );
@@ -29,9 +28,9 @@ class _ListGridViewState extends State<ListGridView> {
 
   _appBar() {
     return AppBar(
-      backgroundColor: Colors.blueGrey,
       actions: [
         IconButton(
+          color: Colors.teal,
           icon: Icon(Icons.list),
           onPressed: () {
             print('Lista');
@@ -41,6 +40,7 @@ class _ListGridViewState extends State<ListGridView> {
           },
         ),
         IconButton(
+          color: Colors.teal,
           icon: Icon(Icons.grid_on),
           onPressed: () {
             print('Grade');
@@ -66,11 +66,14 @@ class _ListGridViewState extends State<ListGridView> {
       Film('O Infiltrado', 'assets/images/infiltrado.jpg'),
       Film('John Wick', 'assets/images/johnwick.jpg'),
       Film('A Menina que Roubava Livros', 'assets/images/meninaroubava.jpg'),
-      Film('Avengers', 'assets/images/avengers.jpg'),
-      Film('A Cabana', 'assets/images/acabana.jpg'),
-      Film('O Infiltrado', 'assets/images/infiltrado.jpg'),
-      Film('John Wick', 'assets/images/johnwick.jpg'),
-      Film('A Menina que Roubava Livros', 'assets/images/meninaroubava.jpg')
+      Film('A Vida Secreta de Walter Mitth',
+          'assets/images/vidasecretawalter.jpeg'),
+      Film('The Batman', 'assets/images/thebatman.jpeg'),
+      Film('Gravidade', 'assets/images/gravidade.jpeg'),
+      Film('Joker', 'assets/images/joker.jpeg'),
+      Film('interstellar', 'assets/images/interstellar.jpeg'),
+      Film('Django Livre', 'assets/images/django.jpeg'),
+      Film('A Origem', 'assets/images/aorigem.jpeg'),
     ];
 
     if (_gridView) {

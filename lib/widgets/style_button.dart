@@ -11,14 +11,15 @@ class StyleGreyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-      color: Colors.blueGrey[700],
+      color: Colors.teal,
       child: Text(
         text,
         style: TextStyle(
-          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
         ),
       ),
-      onPressed: onPressed ,
+      onPressed: onPressed,
     );
   }
 }

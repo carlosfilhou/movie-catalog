@@ -9,7 +9,6 @@ class HelloPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[850],
       appBar: _appBar(),
       body: _body(context),
     );
@@ -30,9 +29,8 @@ class HelloPage3 extends StatelessWidget {
 
   _appBar() {
     return AppBar(
-      backgroundColor: Colors.blueGrey,
       title: Text(
-        'PAGE 3',
+        'Page 3',
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),
