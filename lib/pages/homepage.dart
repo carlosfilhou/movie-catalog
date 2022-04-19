@@ -104,7 +104,7 @@ class HomePage extends StatelessWidget {
           textColor: Colors.black,
           label: 'OK',
           onPressed: () {
-            print('OK!');
+            print('OK!!');
           },
         ),
       ),
@@ -141,7 +141,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _onClickToast() {}
+  _onClickToast() {
+    print(
+        'Toast ainda está desabilitado devido a versão do flutter na máquina');
+  }
 
   _img(String img) {
     return Container(
