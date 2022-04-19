@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
         children: [
           _title('Principais'),
           _pageView(),
-          _buttons(context),
+          _buttons(),
         ],
       ),
     );
@@ -60,36 +60,36 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buttons(context) {
+  _buttons() {
     // ignore: avoid_unnecessary_containers
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              StyleGreyButton('List View',
-                  () => _onClickNavigator(context, ListGridView())),
-              StyleGreyButton(
-                  'Page 2', () => _onClickNavigator(context, HelloPage2())),
-              StyleGreyButton(
-                  'Page 3', () => _onClickNavigator(context, HelloPage3())),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              StyleGreyButton('Snack', _onClickSnack),
-              StyleGreyButton('Dialog', _onClickDialog),
-              StyleGreyButton('Toast', _onClickToast),
-            ],
-          ),
-        ],
-      ),
+    return Builder(
+      builder: (context) {
+        return Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                StyleGreyButton('List View',
+                    () => _onClickNavigator(context, ListGridView())),
+                StyleGreyButton(
+                    'Page 2', () => _onClickNavigator(context, HelloPage2())),
+                StyleGreyButton(
+                    'Page 3', () => _onClickNavigator(context, HelloPage3())),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                StyleGreyButton('Snack', () => _onClickSnack(context)),
+                StyleGreyButton('Dialog', _onClickDialog),
+                StyleGreyButton('Toast', _onClickToast),
+              ],
+            ),
+          ],
+        );
+      },
     );
   }
-
-  
 
   void _onClickNavigator(BuildContext context, Widget page) async {
     var s = await push(context, page);
@@ -97,7 +97,20 @@ class HomePage extends StatelessWidget {
     print('>> $s');
   }
 
-  _onClickSnack() {}
+  _onClickSnack(context) {
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Olá Flutter'),
+        action: SnackBarAction(
+          textColor: Colors.white,
+          label: 'OK',
+          onPressed: () {
+            print('OK!');
+          },
+        ),
+      ),
+    );
+  }
 
   _onClickDialog() {}
 

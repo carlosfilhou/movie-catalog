@@ -18,7 +18,7 @@ class StyleGreyButton extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      onPressed: onPressed,
+      onPressed: onPressed ,
     );
   }
 }
