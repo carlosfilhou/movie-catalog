@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_practicing/pages/film_detail.dart';
+import 'package:flutter_practicing/utils/nav.dart';
 
 class Film {
   String nome;
@@ -63,6 +65,11 @@ class _ListGridViewState extends State<ListGridView> {
       Film('A Cabana', 'assets/images/acabana.jpg'),
       Film('O Infiltrado', 'assets/images/infiltrado.jpg'),
       Film('John Wick', 'assets/images/johnwick.jpg'),
+      Film('A Menina que Roubava Livros', 'assets/images/meninaroubava.jpg'),
+      Film('Avengers', 'assets/images/avengers.jpg'),
+      Film('A Cabana', 'assets/images/acabana.jpg'),
+      Film('O Infiltrado', 'assets/images/infiltrado.jpg'),
+      Film('John Wick', 'assets/images/johnwick.jpg'),
       Film('A Menina que Roubava Livros', 'assets/images/meninaroubava.jpg')
     ];
 
@@ -89,26 +96,31 @@ class _ListGridViewState extends State<ListGridView> {
   _card(List<Film> films, int index) {
     Film film = films[index];
 
-    return Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        _img(film.foto),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: EdgeInsets.all(15),
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.black45,
-              borderRadius: BorderRadius.circular(15),
+    return GestureDetector(
+      onTap: () {
+        push(context, FilmDetail(film));
+      },
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          _img(film.foto),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.all(15),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.black45,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Text(
+                film.nome,
+                style: TextStyle(fontSize: 26, color: Colors.white),
+              ),
             ),
-            child: Text(
-              film.nome,
-              style: TextStyle(fontSize: 26, color: Colors.white),
-            ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 
