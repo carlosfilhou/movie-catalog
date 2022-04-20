@@ -48,8 +48,8 @@ class HomePage extends StatelessWidget {
       child: PageView(
         children: [
           _img('assets/images/django.jpeg'),
-          _img('assets/images/1917.jpeg'),
           _img('assets/images/thebatman.jpeg'),
+          _img('assets/images/1917.jpeg'),
           _img('assets/images/vidasecretawalter.jpeg'),
           _img('assets/images/avengers.jpg'),
           _img('assets/images/gravidade.jpeg'),

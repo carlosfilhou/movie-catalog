@@ -11,7 +11,27 @@ class HelloPage2 extends StatelessWidget {
     return Scaffold(
       appBar: _appBar(),
       body: _body(context),
+      floatingActionButton: _fab(),
     );
+  }
+
+  _fab() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        FloatingActionButton(
+          backgroundColor: Colors.teal,
+          child: Icon(Icons.add),
+          onPressed: () {
+            _onClickFab();
+          },
+        ),
+      ],
+    );
+  }
+
+  _onClickFab() {
+    print('Você clicou no FAB!!');
   }
 
   _body(context) {
