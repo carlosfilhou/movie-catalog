@@ -12,6 +12,14 @@ class DrawerList extends StatelessWidget {
       child: ListView(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
+          UserAccountsDrawerHeader(
+            accountName: Text('Carlos Augusto'),
+            accountEmail: Text('carlosfilho.canal@icloud.com'),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdzhSUpy5Xc9JzfmDtym1FGxdEYsxqOIeclB2_LWcafGDCp25KNJBkeM3LOfOAFzJowhM&usqp=CAU'),
+            ),
+          ),
           ListTile(
             textColor: Colors.black,
             iconColor: Colors.black,
