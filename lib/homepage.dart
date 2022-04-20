@@ -12,15 +12,34 @@ import 'utils/nav.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _appBar(),
-      drawer: DrawerList(),
-      body: _body(context),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: _appBar(),
+        drawer: DrawerList(),
+        body: TabBarView(
+          children: [
+            _body(context),
+            Center(
+              child: Text(
+                'Segunda página pode ser mostrada aqui',
+                style: TextStyle(fontSize: 18),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 
   _appBar() {
     return AppBar(
+      bottom: TabBar(
+        tabs: [
+          Tab(text: 'TabBar 1'),
+          Tab(text: 'TabBar 2'),
+        ],
+      ),
       title: Text(
         'Catálogo de Filmes',
         style: TextStyle(
@@ -46,7 +65,7 @@ class HomePage extends StatelessWidget {
   _pageView() {
     return Container(
       margin: EdgeInsets.only(top: 10, bottom: 10),
-      height: 400,
+      height: 350,
       child: PageView(
         children: [
           _img('assets/images/django.jpeg'),
