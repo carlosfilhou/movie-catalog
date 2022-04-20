@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_practicing/drawer_list.dart';
 import 'package:flutter_practicing/widgets/style_button.dart';
 
 class HelloPage3 extends StatelessWidget {
@@ -9,6 +10,7 @@ class HelloPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerList(),
       appBar: _appBar(),
       body: _body(context),
     );

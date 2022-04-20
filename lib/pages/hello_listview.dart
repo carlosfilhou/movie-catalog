@@ -78,8 +78,10 @@ class _ListGridViewState extends State<ListGridView> {
 
     if (_gridView) {
       return GridView.builder(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.5,
+        ),
         itemCount: films.length,
         itemBuilder: (BuildContext context, int index) {
           return _card(films, index);

@@ -16,17 +16,12 @@ class HelloPage2 extends StatelessWidget {
   }
 
   _fab() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        FloatingActionButton(
-          backgroundColor: Colors.teal,
-          child: Icon(Icons.add),
-          onPressed: () {
-            _onClickFab();
-          },
-        ),
-      ],
+    return FloatingActionButton(
+      backgroundColor: Colors.teal,
+      child: Icon(Icons.favorite),
+      onPressed: () {
+        _onClickFab();
+      },
     );
   }
 

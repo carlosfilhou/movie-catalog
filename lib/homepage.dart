@@ -1,18 +1,20 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_practicing/drawer_list.dart';
 import 'package:flutter_practicing/pages/hello_listview.dart';
 import 'package:flutter_practicing/pages/hello_page2.dart';
 import 'package:flutter_practicing/pages/hello_page3.dart';
 import 'package:flutter_practicing/widgets/style_button.dart';
 
-import '../utils/nav.dart';
+import 'utils/nav.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
+      drawer: DrawerList(),
       body: _body(context),
     );
   }
@@ -48,11 +50,11 @@ class HomePage extends StatelessWidget {
       child: PageView(
         children: [
           _img('assets/images/django.jpeg'),
+          _img('assets/images/aorigem.jpeg'),
           _img('assets/images/thebatman.jpeg'),
-          _img('assets/images/1917.jpeg'),
           _img('assets/images/vidasecretawalter.jpeg'),
           _img('assets/images/avengers.jpg'),
-          _img('assets/images/gravidade.jpeg'),
+          _img('assets/images/1917.jpeg'),
         ],
       ),
     );
