@@ -14,7 +14,7 @@ class DrawerList extends StatelessWidget {
         children: [
           UserAccountsDrawerHeader(
             accountName: Text('Carlos Augusto'),
-            accountEmail: Text('carlosfilho.canal@gmail.com'),
+            accountEmail: Text('carlosfilho.canal@icloud.com'),
             currentAccountPicture: CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdzhSUpy5Xc9JzfmDtym1FGxdEYsxqOIeclB2_LWcafGDCp25KNJBkeM3LOfOAFzJowhM&usqp=CAU'),
