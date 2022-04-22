@@ -164,7 +164,7 @@ class HomePage extends StatelessWidget {
 
   _onClickToast() {
     print(
-        'Toast ainda está desabilitado devido a versão do flutter na máquina');
+        'Toast ainda está desabilitado devido a versão do flutter nesta máquina');
   }
 
   _img(String img) {
